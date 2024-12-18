@@ -44,7 +44,7 @@ def agrupar_txt_para_csv(pasta, arquivo_csv):
             print(f"{arquivos_processados} linhas únicas foram processadas e gravadas no CSV.")
 
 # Exemplo de uso
-pasta_dos_arquivos = r'C:\Users\bruno.souza\Downloads\ADS-Lab1\output-bench-primos'  # Substitua com o caminho correto
+pasta_dos_arquivos = r'/home/bruno.souza/Downloads/ADS-Lab1/output-bench-primos/'  # Substitua com o caminho correto
 arquivo_csv = 'dataset-primos.csv'  # Nome do arquivo CSV que será gerado
 
 agrupar_txt_para_csv(pasta_dos_arquivos, arquivo_csv)
