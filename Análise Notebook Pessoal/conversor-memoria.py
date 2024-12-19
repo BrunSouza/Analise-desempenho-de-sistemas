@@ -27,9 +27,9 @@ def agrupar_txt_para_csv(pasta, arquivo_csv):
                     # Divide a linha em palavras (separadas por tabulação ou espaços)
                     partes = linha.split()
 
-                    if len(partes) >= 5:
-                        # Extrai as 5 primeiras informações para criar os titulos das colunas
-                        palavras = tuple(partes[:5])
+                    if len(partes) >= 7:
+                        # Extrai as 7 primeiras informações para criar os titulos das colunas
+                        palavras = tuple(partes[:7])
                         
                         if palavras not in linhas_processadas:  # Verifica se a linha já foi processada
                             writer.writerow(palavras)  # Escreve a linha no CSV
