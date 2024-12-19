@@ -7,22 +7,32 @@ public class Automatizar_Teste_Memoria {
     public static void main(String[] args) {
         String classpath = "bin/;lib/*";
         String mainClass = "BenchmarkAcessoMemoria";
-        String workingDirectory = "C:\\Users\\bruns\\Downloads\\ADS-Lab1"; // Diretório de trabalho
+        String workingDirectory = "C:\\Users\\bruns\\Downloads\\ADS-Lab1";
 
         int firstLimit = 102400;
-        int finalLimit = 1048576;
+        int secondLimit = 921600;
+        int finalValue = 1048576;
         int initialIncrement = 10240;
-        int finalIncrement = 102400;
+        int secondIncrement = 102400;
 
-        // Executando os testes com incremento de 10240 até 102400
-        for (int startValue = 10240; startValue <= firstLimit; startValue += initialIncrement) {
+        // Executando o teste inicial com 1024
+        executeCommand(classpath, mainClass, workingDirectory, 1024);
+
+        // Executando os testes com incremento de 10240 até 102400, sem incluir 102400 no final
+        for (int startValue = 10240; startValue < firstLimit; startValue += initialIncrement) {
             executeCommand(classpath, mainClass, workingDirectory, startValue);
         }
 
-        // Executando os testes com incremento de 102400 até 1048576
-        for (int startValue = 102400; startValue <= finalLimit; startValue += finalIncrement) {
+        // Executando o valor 102400 exatamente uma vez
+        executeCommand(classpath, mainClass, workingDirectory, firstLimit);
+
+        // Executando os testes com incremento de 102400 até 921600, iniciando após 102400
+        for (int startValue = firstLimit + secondIncrement; startValue <= secondLimit; startValue += secondIncrement) {
             executeCommand(classpath, mainClass, workingDirectory, startValue);
         }
+
+        // Executando o teste com valor fixo de 1048576
+        executeCommand(classpath, mainClass, workingDirectory, finalValue);
     }
 
     private static void executeCommand(String classpath, String mainClass, String workingDirectory, int startValue) {
@@ -40,7 +50,7 @@ public class Automatizar_Teste_Memoria {
 
             // Criando o ProcessBuilder
             ProcessBuilder pb = new ProcessBuilder(command.split(" "));
-            pb.directory(new File(workingDirectory)); // Configurando o diretório de trabalho
+            pb.directory(new File(workingDirectory));
             Process process = pb.start();
 
             // Lendo a saída do programa
@@ -61,4 +71,3 @@ public class Automatizar_Teste_Memoria {
         }
     }
 }
-
