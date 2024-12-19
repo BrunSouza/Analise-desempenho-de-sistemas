@@ -45,6 +45,6 @@ def agrupar_txt_para_csv(pasta, arquivo_csv):
 
 # Exemplo de uso
 pasta_dos_arquivos = r'/home/bruno.souza/Downloads/ADS-Lab1/output-bench-primos/'  # Substitua com o caminho correto
-arquivo_csv = 'dataset-primos.csv'  # Nome do arquivo CSV que será gerado
+arquivo_csv = 'Análise Pc do Laboratório/dataset-primos.csv'  # Nome do arquivo CSV que será gerado
 
 agrupar_txt_para_csv(pasta_dos_arquivos, arquivo_csv)
