@@ -14,7 +14,6 @@ def agrupar_txt_para_csv(pasta, arquivo_csv):
         linhas_processadas = set()
 
         for nome_arquivo in os.listdir(pasta):
-            
             # Verifica se é um arquivo .txt
             caminho_arquivo = os.path.join(pasta, nome_arquivo)
             if os.path.isfile(caminho_arquivo) and nome_arquivo.endswith('.txt'):
